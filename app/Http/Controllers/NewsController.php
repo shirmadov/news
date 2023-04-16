@@ -13,7 +13,9 @@ class NewsController extends Controller
         return view('pages.index',compact('news'));
     }
 
-    public function read(){
-        dd("Came");
+    public function read($slug){
+        $content = News::where('slug',$slug)->first();
+//        dd($content);
+        return view('pages.content',compact('content'));
     }
 }
